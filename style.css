@@ -1,0 +1,49 @@
+html{
+    background-color: rgb(233, 145, 14);
+    background-size: cover;
+}
+
+body,html {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+#container{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    align-items: center; /* makes sketch float in center*/
+    justify-content: center;
+}
+
+#resize{
+    position: relative;
+    padding-top: 20px;
+    background-color: white;
+    border-color: grey;
+    border-radius: 10%;
+    width: 100px;
+    height: 50px;
+    font-family: Gill Sans;
+    justify-self: center;
+}
+
+#sketch{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /*creates 4 rows of equal fractions*/
+    grid-auto-rows: 1fr; /*same size bb*/
+    align-items: center;
+    justify-content: center
+}
+
+.sqr{
+  border: 0px solid black;
+  padding: min(10vh, 10vw);
+  background: white;
+}
+
+.hover{
+    background: black;
+}

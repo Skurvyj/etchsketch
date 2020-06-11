@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Etch-A-Sketch</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+      <div id="container">
+          <div id="sketch"></div>
+      </div>
+    <script>
+        const cont = document.querySelector("#container");
+        const sketch = document.querySelector("#sketch");
+
+        const resize = document.createElement('button');
+        resize.id = "resize";
+        resize.onclick = newGrid;
+        resize.textContent = "Change Size"
+        cont.appendChild(resize);
+
+        for(i = 0; i < 16; i++){
+            const sqr = document.createElement('div')
+            sqr.className = "sqr";
+            sqr.id = "s" + i;
+            sqr.addEventListener('mouseover', draw);
+            sketch.appendChild(sqr);
+        }
+        
+
+        function newGrid(){
+            let gridsize = prompt("Please enter your desired grid dimension. (Ex: 64).", "32");
+            if(gridsize == null) return;
+
+            const sqrs = document.querySelectorAll(".sqr");
+            sqrs.forEach(s => sketch.removeChild(s));
+
+            for(i = 0; i < gridsize*gridsize; i++){
+            const sqr = document.createElement('div')
+            sqr.className = "sqr";
+            sqr.id = "s" + i;
+            sqr.addEventListener('mouseover', draw);
+            sketch.appendChild(sqr);
+            sketch.style.gridTemplateColumns = `repeat(${gridsize}, 1fr)`;
+        }
+
+            
+
+
+
+        }
+
+        function draw(e){
+            e.target.classList.add('hover');     
+        }
+
+        /*const blocks = document.querySelectorAll(".sqr");
+        blocks.forEach(sqr => sqr.addEventListener('mouseover', draw));*/
+    </script>
+  </body>
+</html>

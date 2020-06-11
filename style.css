@@ -1,6 +1,8 @@
 html{
-    background-color: rgb(233, 145, 14);
-    background-size: cover;
+    background: url("https://www.publicdomainpictures.net/pictures/100000/velka/retro-blocks-1406494470dMr.jpg");
+    background-repeat: repeat;
+    background-color: rgb(236, 231, 231);
+    background-size: 1000px;
 }
 
 body,html {
@@ -8,6 +10,7 @@ body,html {
     padding: 0;
     font-family: sans-serif;
 }
+
 
 #container{
     width: 100vw;
@@ -17,16 +20,42 @@ body,html {
     justify-content: center;
 }
 
+#logowrap{
+    padding: 10px;
+    height: 100px;
+    justify-self: center;
+    justify-content: center;
+}
+
+#etchlogo{
+    position: relative;
+    height: 75px;
+    top: 20px;
+    border-radius: 40%;
+}
+
+#buttonwrap{
+    justify-content: center;
+    justify-self: center;
+    padding: 10px;
+}
+
 #resize{
     position: relative;
-    padding-top: 20px;
     background-color: white;
     border-color: grey;
-    border-radius: 10%;
+    border-radius: 10px;
     width: 100px;
-    height: 50px;
+    height: 40px;
     font-family: Gill Sans;
+    font-size: 16px;
     justify-self: center;
+}
+
+#sketchwrap{
+    width: 500px;
+    height: 500px;
+    
 }
 
 #sketch{
@@ -39,8 +68,10 @@ body,html {
 }
 
 .sqr{
+  display: grid;  
   border: 0px solid black;
-  padding: min(10vh, 10vw);
+  height: 125px;
+  width: 125px;
   background: white;
 }
 

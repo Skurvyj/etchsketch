@@ -7,17 +7,25 @@
   </head>
   <body>
       <div id="container">
-          <div id="sketch"></div>
+          <div id = "logowrap">
+              <div id = "logo">
+                  <img id = "etchlogo" src = "https://i.pinimg.com/originals/85/89/49/8589497739d2481fd6c0a4ed72c9ec6e.jpg">
+              </div>
+          </div>
+          <div id = "sketchwrap">
+            <div id="sketch"></div>
+          </div>
+          <div id="buttonwrap"></div>
       </div>
     <script>
-        const cont = document.querySelector("#container");
+        const wrap = document.querySelector("#buttonwrap");
         const sketch = document.querySelector("#sketch");
 
         const resize = document.createElement('button');
         resize.id = "resize";
         resize.onclick = newGrid;
         resize.textContent = "Change Size"
-        cont.appendChild(resize);
+        wrap.appendChild(resize);
 
         for(i = 0; i < 16; i++){
             const sqr = document.createElement('div')
@@ -29,8 +37,12 @@
         
 
         function newGrid(){
-            let gridsize = prompt("Please enter your desired grid dimension. (Ex: 64).", "32");
+            let gridsize = prompt("Please enter your desired grid dimension between 1 - 200. (Ex: 64).", "32");
             if(gridsize == null) return;
+            if(gridsize > 200){
+                alert("Too large! Please enter a value less than 200.");
+                return;
+            }
 
             const sqrs = document.querySelectorAll(".sqr");
             sqrs.forEach(s => sketch.removeChild(s));
@@ -40,14 +52,11 @@
             sqr.className = "sqr";
             sqr.id = "s" + i;
             sqr.addEventListener('mouseover', draw);
-            sketch.appendChild(sqr);
-            sketch.style.gridTemplateColumns = `repeat(${gridsize}, 1fr)`;
+            sqr.style.height = 500/gridsize + "px";
+            sqr.style.width = 500/gridsize + "px";
+            sketch.appendChild(sqr);   
         }
-
-            
-
-
-
+            sketch.style.gridTemplateColumns = `repeat(${gridsize}, 1fr)`;    
         }
 
         function draw(e){
